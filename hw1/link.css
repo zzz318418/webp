@@ -24,3 +24,11 @@ a:active{
 h1{
     color: blueviolet;
 }
+
+img {  
+    max-height: 38%;  
+    max-width: 38%; 
+    width: auto;
+    height: auto;   
+    margin: auto;
+}
