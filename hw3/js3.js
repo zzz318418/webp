@@ -13,7 +13,7 @@ function getRandom(x){
 }
 function gameStart(){
   updateScore(0)
-  gameIterval=setInterval(gameRoutine,500)
+  gameIterval=setInterval(gameRoutine,1000)
   //gameIterval=setInterval(generateTopic(topic),1000)
 }
 function updateScore(newScore) {
@@ -23,7 +23,7 @@ function updateScore(newScore) {
 function gameRoutine(){
   generateTopic(topic)
   updateCanvas(topic)
-  updateAnswer(answer)
+  updateAnswer(answer2)
   offset(topic,answer)
 }
 function clearCanvas()
@@ -80,15 +80,16 @@ function handleKeyDown(event) {
       answer.push(alphabet[order])
     }
   }
-    offset(topic,answer)
+  offset(topic,answer)
 }
 function generateTopic(array){
   array.push(alphabet[getRandom(26)])
 }
+var answer2=[" "]
 function offset(a,b){
   if(a[0]===b[0]&&b!= !!undefined){//b要不等於undefined
     a.shift()
-    b.pop()
+    answer2.push(b.pop())
     updateScore(score+1)
   }
 }
