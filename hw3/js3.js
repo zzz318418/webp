@@ -78,6 +78,7 @@ function handleKeyDown(event) {
   for (order = 0; order < 26; order++) {
     if (event.keyCode === 65+order) {
       answer.push(alphabet[order])
+      answer.unshift(alphabet[order])
     }
   }
   offset(topic,answer)
