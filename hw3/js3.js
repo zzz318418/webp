@@ -80,6 +80,7 @@ function handleKeyDown(event) {
       answer.push(alphabet[order])
     }
   }
+    offset(topic,answer)
 }
 function generateTopic(array){
   array.push(alphabet[getRandom(26)])
