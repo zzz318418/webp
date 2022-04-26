@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>teacher_example</title>
+    <!-- 連結JQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <script>
+        var tags = "李知恩";
+        var dataUrl = "https://api.flickr.com/services/feeds/photos\_public.gne?tags=" + tags+"&tagmode=any&format=json&per_page=400&jsoncallback=?";
+    </script>
+    <script>
+    var data = $.getJSON(dataUrl);
+    </script>
+    <html>
+    <h1>cgu 正妹牆</h1>
+    <div id="contain"></div>
+    </html>
+    <script>
+    data.done( function( msg ) {
+    $.each(msg.items, function(i,item) {
+    $("#contain").html();
+    $("#contain").append($("<img/>").attr("src", item.media.m));
+    });
+    });
+    data.fail( function( msg ) {
+    console.log(msg);
+    $("#contain").html("fail getting data");
+    });
+    </script>
+
+</body>
+</html>
