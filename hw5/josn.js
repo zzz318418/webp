@@ -37,17 +37,32 @@ data.done( function( msg ) {
 data.fail( function( msg ) {
     $("#contain").html("fail getting data");
 });
+
 var dataUrl2 = 'https://ptx.transportdata.tw/MOTC/v2/Rail/Metro/ODFare/TYMC?%24top=30&%24format=JSON';
 var Price = $.getJSON(dataUrl2);
 Price.done( function(p ) {
-  
-console.log(p[0].OriginStationID)
-console.log(p[0].OriginStationName.Zh_tw)
+  /*console.log(p[0].OriginStationID)
+console.log(p[0].OriginStationName.Zh_tw)*/
       //select station
-
+    var s=value1;
+    var d=value2;
+    for(var y=0;y<100/*p.lenght*/;y++){
+        if(p[y].OriginStationName.Zh_tw==s&&p[y].DestinationStationName.Zh_tw==d){
+            $("#price").html(p[y].Fares[0].Price);
+        }
+    }
       //id=price 
 
 });
 Price.fail( function( p ) {
     $("#price").html("fail getting data");
 });
+
+var value1
+function select1(){
+    value1 = $("#chice1 option:selected").text();
+} 
+var value2
+function select2(){
+    value2 = $("#chice2 option:selected").text();
+} 
