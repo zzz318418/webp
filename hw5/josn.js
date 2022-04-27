@@ -12,7 +12,7 @@ data.done( function( msg ) {
     $("#contain").append("<div>"+stationCName[0]+"</div>");
     $("#contain").append("<div>"+stationEName[0]+"</div>");
   var ftime=item.TravelTimes[0].RunTime;
-    $("#contain").append("<div>time:"+ftime+"s</div>");
+    $("#pointer").append("<div>time:"+ftime+"s >></div>");
   var endtime=ftime;
   var i;
       for(i=1;i<20;i++){
@@ -23,7 +23,9 @@ data.done( function( msg ) {
         $("#contain"+i).append("<div>"+stationCName[i]+"</div>");
         $("#contain"+i).append("<div>"+stationEName[i]+"</div>");
         ftime=item.TravelTimes[i].RunTime;
-        $("#contain"+i).append("<div>time:"+(ftime-endtime)+"s</div>");
+        if(i<19){
+        $("#pointer"+i).append("<div>time:"+(ftime-endtime)+"s >></div>");
+        }
         endtime=ftime;
       }
 });
