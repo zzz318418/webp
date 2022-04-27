@@ -11,37 +11,43 @@ data.done( function( msg ) {
     $("#contain").append("<div>"+stationID[0]+"</div>");
     $("#contain").append("<div>"+stationCName[0]+"</div>");
     $("#contain").append("<div>"+stationEName[0]+"</div>");
+    $("#A1").text(stationCName[0]);
+    $("#fA1").text(stationCName[0]);
   var ftime=item.TravelTimes[0].RunTime;
     $("#pointer").append("<div>time:"+ftime+"s >></div>");
   var endtime=ftime;
   var i;
-      for(i=1;i<20;i++){
+      for(i=0;i<21;i++){
         stationID[i]=item.TravelTimes[i].ToStationID;
         stationCName[i]=item.TravelTimes[i].ToStationName.Zh_tw;
         stationEName[i]=item.TravelTimes[i].ToStationName.En;
         $("#contain"+i).append("<div>"+stationID[i]+"</div>");
         $("#contain"+i).append("<div>"+stationCName[i]+"</div>");
         $("#contain"+i).append("<div>"+stationEName[i]+"</div>");
-        ftime=item.TravelTimes[i].RunTime;
-        if(i<19){
+        $("#A"+(i+2)).text(stationCName[i]);
+        $("#fA"+(i+2)).text(stationCName[i]);
+        ftime=item.TravelTimes[i+1].RunTime;
         $("#pointer"+i).append("<div>time:"+(ftime-endtime)+"s >></div>");
-        }
+        
         endtime=ftime;
+
       }
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-    data.fail( function( msg ) {
-    console.log(msg);
+data.fail( function( msg ) {
     $("#contain").html("fail getting data");
-    });
+});
+var dataUrl2 = 'https://ptx.transportdata.tw/MOTC/v2/Rail/Metro/ODFare/TYMC?%24top=30&%24format=JSON';
+var Price = $.getJSON(dataUrl2);
+Price.done( function(p ) {
+  
+console.log(p[0].OriginStationID)
+console.log(p[0].OriginStationName.Zh_tw)
+      //select station
+
+      //id=price 
+
+});
+Price.fail( function( p ) {
+    $("#price").html("fail getting data");
+});
