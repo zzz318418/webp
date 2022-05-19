@@ -22,12 +22,10 @@ function App() {
       </header>
     </div>
   );*/
-  /*return <div className="App">
-    <Qz8></Qz8>
-  </div>*/
   return <div className="App">
-  <Hw7></Hw7>
+    <Qz8></Qz8>
   </div>
+
 }
 
 export default App;
