@@ -1,0 +1,15 @@
+*{
+    margin:0;
+  }
+  .app_header{
+    background-color: rgb(251, 234, 140);
+    object-fit: contain;
+    border-bottom: 1px solid lightgray;
+    padding: 20px;
+  }
+  .App{
+    background-color: #f6ffca;
+    height: 100vh;
+  }
+  
+  
